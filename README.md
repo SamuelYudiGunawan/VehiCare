@@ -61,5 +61,5 @@ This documentation provides an overview of a dapp to track users vehicle mainten
       - `id`: The ID of the vehicle maintenance record to update.
       - `payload`: `MaintenancePayload` object containing the details of the vehicle maintenance.
 ## Note
-1. Only addMaintenance, getMaintenances, and deleteMaintenances are availble on the website (frontend)
+1. Only `addMaintenance`, `getMaintenances`, and `deleteMaintenance` are availble on the website (frontend)
 2. The others function perfectly work with `dfx canister call vehicle_maintenance_project_backend [function_name]`
