@@ -7,6 +7,7 @@ type Maintenance = Record<{
     typeVehicle: string; // the type of the vechile, ex: motorcycle, car, truck, bicycle, etc
     date: string;
     price: number;
+    parts: string;
     createdAt: nat64;
     updatedAt: Opt<nat64>;
 }>
@@ -15,6 +16,7 @@ type MaintenancePayload = Record<{
     name: string;
     typeVehicle: string;
     date: string;
+    parts: string;
     price: number;
 }>
 

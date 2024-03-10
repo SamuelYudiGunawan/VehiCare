@@ -5,12 +5,14 @@ type Maintenance = record {
   createdAt : nat64;
   updatedAt : opt nat64;
   typeVehicle : text;
+  parts : text;
   price : float64;
 };
 type MaintenancePayload = record {
   date : text;
   name : text;
   typeVehicle : text;
+  parts : text;
   price : float64;
 };
 type _AzleResult = variant { Ok : Maintenance; Err : text };

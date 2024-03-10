@@ -2,28 +2,38 @@ import { useState, useEffect } from 'react';
 import { vehicle_maintenance_project_backend } from 'declarations/vehicle_maintenance_project_backend';
 
 function App() {
-  const [greeting, setGreeting] = useState('');
   const [maintenances, setMaintenances] = useState([]);
 
   useEffect(() => {
     fetchMaintenances();
   }, []);
 
-  async function handleSubmit(event) {
+  async function addMaintenance(event) {
     event.preventDefault();
     const name = event.target.elements.name.value;
-    vehicle_maintenance_project_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
+    const type = event.target.elements.type.value;
+    const date = event.target.elements.date.value;
+    const part = event.target.elements.part.value;
+    const price = parseFloat(event.target.elements.price.value);
+  
+    try {
+      await vehicle_maintenance_project_backend.addMaintenance({
+        name: name,
+        typeVehicle: type,
+        date: date,
+        parts: part,
+        price: price
+      });
+    } catch (error) {
+      console.error('Error adding maintenance:', error);
+    }
   }
+  
 
   async function fetchMaintenances() {
     try {
-      // Call the getMaintenances function on your canister
       const response = await vehicle_maintenance_project_backend.getMaintenances();
       
-      // Check if response is a valid Result
       if (response.Ok) {
         const maintenances = response.Ok;
         setMaintenances(maintenances);
@@ -35,28 +45,58 @@ function App() {
     }
   }
   
-     
-    
   return (
     <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
+      <h1 className="title">VehiCare</h1>
       <br />
       <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-
-      <h1>Maintenance List</h1>
+      <div className="add-m">
+        <h2>Add Maintenance</h2>
+        <form action="#" onSubmit={addMaintenance}>
+          <div className="name">
+            <label htmlFor="name">Name: &nbsp;</label>
+            <input id="name" alt="Name" type="text" />
+          </div>
+          <div className="type">
+            <label htmlFor="type">Type: &nbsp;</label>
+            <input id="type" alt="Type" type="text" />
+          </div>
+          <div className="type">
+            <label htmlFor="date">Date: &nbsp;</label>
+            <input id="date" alt="Date" type="date" />
+          </div>
+          <div className="part">
+            <label htmlFor="part">Service Parts: &nbsp;</label>
+            <input id="part" alt="Part" type="text" />
+          </div>
+          <div className="price">
+            <label htmlFor="price">Price: &nbsp;</label>
+            <input id="price" alt="Price" type="number" />
+          </div>
+          <div className="submit">
+            <button type="submit">Add</button>
+          </div>
+        </form>
+      </div>
+      <h2>Maintenance List</h2>
       <ul>
         {maintenances.map((maintenance, index) => (
           <li key={index}>
-            <strong>Name:</strong> {maintenance.name}, &nbsp;
-            <strong>Date:</strong> {maintenance.date}, &nbsp;
-            <strong>Type:</strong> {maintenance.typeVehicle}, &nbsp;
+            <div className="items">
+            <strong>Name:</strong> {maintenance.name} &nbsp;
+            </div>
+            <div className="items">
+            <strong>Date:</strong> {maintenance.date} &nbsp;
+            </div>
+            <div className="items">
+            <strong>Type:</strong> {maintenance.typeVehicle} &nbsp;
+            </div>
+            <div className="items">
+            <strong>Serviced Parts:</strong> {maintenance.parts} &nbsp;
+            </div>
+            <div className="items">
             <strong>Price:</strong> {maintenance.price}
+            </div>
           </li>
         ))}
       </ul>

@@ -3,20 +3,17 @@ body {
   font-size: 1.5rem;
 }
 
-img {
-  max-width: 50vw;
-  max-height: 25vw;
-  display: block;
-  margin: auto;
+.add-m {
+  display: flex;
+  flex-direction: column;
 }
 
 form {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   gap: 0.5em;
-  flex-flow: row wrap;
   max-width: 40vw;
-  margin: auto;
   align-items: baseline;
 }
 
@@ -26,12 +23,26 @@ button[type="submit"] {
   float: right;
 }
 
-#greeting {
-  margin: 10px auto;
-  padding: 10px 60px;
-  border: 1px solid #222;
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  list-style-type: none; 
 }
 
-#greeting:empty {
-  display: none;
+li {
+  border: solid 1px black;
+  padding: 5px;
+  width: 300px;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
 }
