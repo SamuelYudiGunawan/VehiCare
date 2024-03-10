@@ -3,23 +3,23 @@ This documentation provides an overview of a dapp to track users vehicle mainten
 
 ## Installation
 1. clone the reposeitory
-```
+  ```
   git clone https://github.com/SamuelYudiGunawan/vehicle-project.git
-```
+  ```
 2. Install dependencies
-```
+  ```
    npm install
   ``` 
 3. Start the IC local development environment
   ``` 
    dfx start --background --clean
-   ```
+  ```
 4. Deploy the canisters to the local development environment
-   ```
+  ```
    npm run setup
   ```
 5. Start the frontend server
-```
+  ```
   npm start
-```
+  ```
 
