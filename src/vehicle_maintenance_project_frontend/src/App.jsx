@@ -24,6 +24,7 @@ function App() {
         parts: part,
         price: price
       });
+      window.location.reload();
     } catch (error) {
       console.error('Error adding maintenance:', error);
     }
@@ -44,6 +45,19 @@ function App() {
       console.error('Error fetching maintenances:', error);
     }
   }
+
+  async function deleteMaintenance(id) {
+    try {
+      const response = await vehicle_maintenance_project_backend.deleteMaintenance(id);
+      if (response.Ok) {
+        window.location.reload();
+      } else {
+        console.error('Error deleting maintenance:', response.Err);
+      }
+    } catch (error) {
+      console.error('Error deleting maintenance:', error);
+    }
+  }
   
   return (
     <main>
@@ -52,31 +66,28 @@ function App() {
       <br />
       <div className="add-m">
         <h2>Add Maintenance</h2>
-        <form action="#" onSubmit={addMaintenance}>
+        <div className="form-container">
           <div className="name">
             <label htmlFor="name">Name: &nbsp;</label>
-            <input id="name" alt="Name" type="text" />
+            <input id="name" alt="Name" type="text"/>
           </div>
           <div className="type">
             <label htmlFor="type">Type: &nbsp;</label>
-            <input id="type" alt="Type" type="text" />
+            <input id="type" alt="Type" type="text"/>
           </div>
           <div className="type">
             <label htmlFor="date">Date: &nbsp;</label>
-            <input id="date" alt="Date" type="date" />
+            <input id="date" alt="Date" type="date"/>
           </div>
           <div className="part">
             <label htmlFor="part">Service Parts: &nbsp;</label>
-            <input id="part" alt="Part" type="text" />
+            <input id="part" alt="Part" type="text"/>
           </div>
           <div className="price">
             <label htmlFor="price">Price: &nbsp;</label>
-            <input id="price" alt="Price" type="number" />
+            <input id="price" alt="Price" type="number"/>
           </div>
-          <div className="submit">
-            <button type="submit">Add</button>
-          </div>
-        </form>
+        </div>
       </div>
       <h2>Maintenance List</h2>
       <ul>
@@ -96,6 +107,9 @@ function App() {
             </div>
             <div className="items">
             <strong>Price:</strong> {maintenance.price}
+            </div>
+            <div className="delete">
+            <button onClick={() => deleteMaintenance(maintenance.id)}>Delete</button>
             </div>
           </li>
         ))}

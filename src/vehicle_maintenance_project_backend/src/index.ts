@@ -109,11 +109,6 @@ export function updateMaintenance(id: string, payload: MaintenancePayload): Resu
     });
 }
 
-$query
-export function greet(name: string): string {
-    return `Hello, ${name}`;
-}
-
 globalThis.crypto = {
     // @ts-ignore
     getRandomValues: () => {

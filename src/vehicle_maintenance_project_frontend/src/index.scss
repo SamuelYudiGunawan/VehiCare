@@ -8,12 +8,27 @@ body {
   flex-direction: column;
 }
 
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.form-container label {
+  display: inline-block;
+  width: 200px;
+  margin-left: 40px;
+}
+
+input {
+  width: 200px;
+}
+
 form {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 0.5em;
-  max-width: 40vw;
+  gap: 10px;
   align-items: baseline;
 }
 
@@ -34,10 +49,15 @@ li {
   border: solid 1px black;
   padding: 5px;
   width: 300px;
-  height: 170px;
+  height: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+h2 {
+  margin: 0;
+  margin-left: 10px;
 }
 
 .title {
@@ -45,4 +65,10 @@ li {
   display: flex;
   justify-content: center;
   margin-bottom: 0;
+}
+
+.delete button {
+  background-color: rgb(255, 34, 0);
+  color: white;
+  padding: 5px;
 }

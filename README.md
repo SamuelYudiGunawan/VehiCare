@@ -2,7 +2,7 @@
 This documentation provides an overview of a dapp to track users vehicle maintenance history called Vehicare. The system's backend is built using TypeScript and the Azle framework, while the frontend is developed using the react framework. Vehicare helps users track their vehicles maintenance history.
 
 ## Installation
-1. clone the reposeitory
+1. Clone the reposeitory
   ```
   git clone https://github.com/SamuelYudiGunawan/vehicle-project.git
   ```
