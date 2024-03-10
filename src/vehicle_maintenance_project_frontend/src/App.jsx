@@ -66,28 +66,33 @@ function App() {
       <br />
       <div className="add-m">
         <h2>Add Maintenance</h2>
-        <div className="form-container">
-          <div className="name">
-            <label htmlFor="name">Name: &nbsp;</label>
-            <input id="name" alt="Name" type="text"/>
-          </div>
-          <div className="type">
-            <label htmlFor="type">Type: &nbsp;</label>
-            <input id="type" alt="Type" type="text"/>
-          </div>
-          <div className="type">
-            <label htmlFor="date">Date: &nbsp;</label>
-            <input id="date" alt="Date" type="date"/>
-          </div>
-          <div className="part">
-            <label htmlFor="part">Service Parts: &nbsp;</label>
-            <input id="part" alt="Part" type="text"/>
-          </div>
-          <div className="price">
-            <label htmlFor="price">Price: &nbsp;</label>
-            <input id="price" alt="Price" type="number"/>
-          </div>
-        </div>
+        <form action="#" onSubmit={addMaintenance}>
+            <div className="form-container">
+              <div className="name">
+                <label htmlFor="name">Name: &nbsp;</label>
+                <input id="name" alt="Name" type="text"/>
+              </div>
+              <div className="type">
+                <label htmlFor="type">Type: &nbsp;</label>
+                <input id="type" alt="Type" type="text"/>
+              </div>
+              <div className="type">
+                <label htmlFor="date">Date: &nbsp;</label>
+                <input id="date" alt="Date" type="date"/>
+              </div>
+              <div className="part">
+                <label htmlFor="part">Service Parts: &nbsp;</label>
+                <input id="part" alt="Part" type="text"/>
+              </div>
+              <div className="price">
+                <label htmlFor="price">Price: &nbsp;</label>
+                <input id="price" alt="Price" type="number"/>
+              </div>
+            </div>
+            <div className="submit">
+              <button type="submit">Add Maintenance</button>
+            </div>
+        </form>
       </div>
       <h2>Maintenance List</h2>
       <ul>
