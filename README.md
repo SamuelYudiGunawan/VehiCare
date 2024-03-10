@@ -4,7 +4,7 @@ This documentation provides an overview of a dapp to track users vehicle mainten
 ## Installation
 1. Clone the reposeitory
   ```
-  git clone https://github.com/SamuelYudiGunawan/vehicle-project.git
+  git clone https://github.com/SamuelYudiGunawan/VehiCare.git
   ```
 2. Install dependencies
   ```
